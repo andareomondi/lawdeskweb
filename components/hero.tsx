@@ -73,7 +73,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
             <div className="relative w-64 h-64 md:w-96 md:h-96 animate-bounce" style={{ animationDuration: "3s" }}>
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/compliant-HClKsOanpjVCngxcWBed8tbxShyHK5.png"
+                src="/logo.png"
                 alt="LawDesk Case Management"
                 width={384}
                 height={384}
