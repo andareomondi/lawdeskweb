@@ -83,11 +83,6 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/blog" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  Blog
-                </a>
-              </li>
-              <li>
                 <a
                   href="/careers"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
