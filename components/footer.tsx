@@ -94,12 +94,6 @@ export function Footer() {
             © 2025 LawDesk. All rights reserved. Built for African lawyers.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-              Status
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-              Changelog
-            </a>
             <a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
               Support
             </a>

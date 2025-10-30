@@ -33,7 +33,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg p-12 h-64 flex items-center justify-center">
               <div className="text-center">
-                <div className="text-5xl font-bold text-primary mb-2">2024</div>
+                <div className="text-5xl font-bold text-primary mb-2">October, 2025</div>
                 <p className="text-muted-foreground">Founded in Kenya</p>
               </div>
             </div>
@@ -70,22 +70,10 @@ export default function AboutPage() {
           <div className="bg-muted/50 rounded-lg p-12">
             <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Our Team</h2>
             <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-8">
-              LawDesk is built by a team of software engineers, designers, and legal professionals who are passionate
-              about improving the legal industry.
+              LawDesk is built by a dynamic pair of two software engineering student entrepreneurs passionate about leveraging technology to transform the legal industry in Africa. With a deep understanding of both software development and the unique challenges faced by legal professionals, they are dedicated to creating innovative solutions that empower lawyers to manage their practices more efficiently and effectively.
             </p>
-            <div className="text-center">
-              <p className="text-muted-foreground mb-4">
-                We're hiring! If you're interested in joining our mission to transform legal tech in Africa, we'd love
-                to hear from you.
-              </p>
-              <a
-                href="/careers"
-                className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-              >
-                View Open Positions
-              </a>
-            </div>
           </div>
+          {/* TODO: Add cards with our names and profile picture and social info */}
         </section>
       </main>
       <Footer />
