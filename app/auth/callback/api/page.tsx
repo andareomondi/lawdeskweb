@@ -77,7 +77,7 @@ export default function CallbackPage() {
                 </Button>
               </Link>
               <p className="text-xs text-center text-muted-foreground">
-                Questions? Contact our support team at support@lawdesk.com
+                Questions? Contact our support team at shadrackandare@gmail.com
               </p>
             </div>
           </Card>
@@ -134,7 +134,7 @@ export default function CallbackPage() {
                 </Button>
               </Link>
               <p className="text-xs text-center text-muted-foreground">
-                Need help? Email support@lawdesk.com or visit our support page
+                Need help? Email shadrackandare@gmail.com or visit our support page
               </p>
             </div>
           </Card>
