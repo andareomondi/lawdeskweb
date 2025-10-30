@@ -41,30 +41,6 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="#features"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#upcoming"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Roadmap
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/pricing"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
                   href="/security"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
