@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/20 py-20 md:py-40">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-muted/20 py-8 md:py-16 lg:py-24">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div

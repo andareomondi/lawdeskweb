@@ -20,6 +20,17 @@ export function Header() {
           <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">LawDesk</span>
         </a>
 
+        <nav>
+          <a href="#newsletter">
+            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+              Get Started
+            </Button>
+          </a>
+
+
+
+        </nav>
+
         <nav className="hidden md:flex items-center gap-8">
           <a
             href="#features"
@@ -44,6 +55,6 @@ export function Header() {
           </Button>
         </nav>
       </div>
-    </header>
+    </header >
   )
 }
