@@ -19,14 +19,15 @@ export default function ContactPage() {
     e.preventDefault()
     console.log("Form submitted:", formData)
     setFormData({ name: "", email: "", subject: "", message: "" })
+    //TODO: Implement a table to save contact messages
   }
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main >
         {/* Hero Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Get in Touch</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -39,20 +40,20 @@ export default function ContactPage() {
               {
                 icon: Mail,
                 title: "Email",
-                content: "support@lawdesk.app",
-                link: "mailto:support@lawdesk.app",
+                content: "shadrackandare@gmail.com",
+                link: "mailto:shadrackandare@gmail.com",
               },
               {
                 icon: Phone,
                 title: "Phone",
-                content: "+254 (0) 123 456 789",
-                link: "tel:+254123456789",
+                content: "+254 (0) 741 716 609",
+                link: "tel:+254741716609",
               },
               {
                 icon: MapPin,
                 title: "Location",
                 content: "Nairobi, Kenya",
-                link: "#",
+                link: "https://maps.app.goo.gl/ykvEvfjkDH38SifF9",
               },
             ].map((contact, idx) => {
               const Icon = contact.icon
