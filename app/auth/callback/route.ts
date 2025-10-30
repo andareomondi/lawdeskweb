@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   if (error) {
     return NextResponse.redirect(
       new URL(
-        `/auth/callback?success=false&error=${encodeURIComponent(error)}&description=${encodeURIComponent(
+        `/auth/callback/api?success=false&error=${encodeURIComponent(error)}&description=${encodeURIComponent(
           errorDescription || "An error occurred during verification",
         )}`,
         request.url,
@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
   if (!token || !type) {
     return NextResponse.redirect(
       new URL(
-        "/auth/callback?success=false&error=invalid_request&description=Missing token or type parameter",
+        "/auth/callback/api?success=false&error=invalid_request&description=Missing token or type parameter",
         request.url,
       ),
     )
@@ -50,21 +50,21 @@ export async function GET(request: NextRequest) {
       const data = await response.json()
       // Set session cookie or store token as needed
       const redirectResponse = NextResponse.redirect(
-        new URL("/auth/callback?success=true&type=" + encodeURIComponent(type), request.url),
+        new URL("/auth/callback/api?success=true&type=" + encodeURIComponent(type), request.url),
       )
       return redirectResponse
     } else {
       // Proceed with success even if Supabase verification fails
       // This allows the flow to work without full Supabase configuration
       const redirectResponse = NextResponse.redirect(
-        new URL("/auth/callback?success=true&type=" + encodeURIComponent(type), request.url),
+        new URL("/auth/callback/api?success=true&type=" + encodeURIComponent(type), request.url),
       )
       return redirectResponse
     }
   } catch (error) {
     console.error("[v0] Callback error:", error)
     return NextResponse.redirect(
-      new URL("/auth/callback?success=false&error=verification_failed&description=Failed to verify email", request.url),
+      new URL("/auth/callback/api?success=false&error=verification_failed&description=Failed to verify email", request.url),
     )
   }
 }
