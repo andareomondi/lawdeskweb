@@ -7,16 +7,15 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
-        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-foreground mb-8">Privacy Policy</h1>
-          <p className="text-muted-foreground mb-8">Last updated: January 2025</p>
+      <main >
+        <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-foreground mb-4">Privacy Policy</h1>
 
           <div className="space-y-8 text-muted-foreground">
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">1. Introduction</h2>
               <p>
-                LawDesk ("we", "us", "our", or "Company") operates the LawDesk application. This page informs you of our
+                LawDesk Company operates the LawDesk application. This page informs you of our
                 policies regarding the collection, use, and disclosure of personal data when you use our Service and the
                 choices you have associated with that data.
               </p>

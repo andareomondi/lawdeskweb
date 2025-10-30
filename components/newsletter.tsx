@@ -15,7 +15,7 @@ export function Newsletter() {
     e.preventDefault()
     setLoading(true)
 
-    // Simulate API call
+    // TODO: Implement actual email submission here 
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     setSubmitted(true)
@@ -27,7 +27,7 @@ export function Newsletter() {
   }
 
   return (
-    <section id="newsletter" className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section id="newsletter" className="py-15 md:py-22 bg-background relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div
@@ -78,34 +78,12 @@ export function Newsletter() {
                   </Button>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  No spam, just updates about LawDesk. Unsubscribe anytime.
+                  No spam, just updates about LawDesk.
                 </p>
               </form>
             )}
           </div>
         </Card>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm font-semibold text-muted-foreground mb-4">
-            Trusted by legal professionals across Africa
-          </p>
-          <div className="flex justify-center items-center gap-8 flex-wrap">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-foreground">500+</p>
-              <p className="text-xs text-muted-foreground">Beta Testers</p>
-            </div>
-            <div className="w-px h-8 bg-border" />
-            <div className="text-center">
-              <p className="text-2xl font-bold text-foreground">15+</p>
-              <p className="text-xs text-muted-foreground">Countries</p>
-            </div>
-            <div className="w-px h-8 bg-border" />
-            <div className="text-center">
-              <p className="text-2xl font-bold text-foreground">99.9%</p>
-              <p className="text-xs text-muted-foreground">Uptime</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

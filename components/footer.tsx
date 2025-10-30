@@ -117,30 +117,7 @@ export function Footer() {
                   Terms of Service
                 </a>
               </li>
-              <li>
-                <a
-                  href="/cookies"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  Cookie Policy
-                </a>
-              </li>
             </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">Newsletter</h4>
-            <p className="text-sm text-muted-foreground">Get updates on new features and releases</p>
-            <form className="space-y-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-              />
-              <button className="w-full px-3 py-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold rounded-lg transition-colors">
-                Subscribe
-              </button>
-            </form>
           </div>
         </div>
 
