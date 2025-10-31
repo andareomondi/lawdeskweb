@@ -26,48 +26,54 @@ function HomeContent() {
       const errorCode = searchParams.get('error_code')
       const errorDescription = searchParams.get('error_description')
 
-      // If there's a code or error, show the verification modal
-      if (code || error) {
-        setShowVerificationModal(true)
+      // Only proceed if we have either a code or an error
+      if (!code && !error) {
+        return
+      }
 
-        if (error) {
-          setVerificationStatus('error')
+      // Show modal and set to loading
+      setShowVerificationModal(true)
+      setVerificationStatus('loading')
 
-          if (errorCode === 'otp_expired') {
-            setVerificationMessage('This verification link has expired. Please request a new one.')
-          } else if (errorCode === 'otp_disabled') {
-            setVerificationMessage('Email verification is not enabled.')
-          } else {
-            setVerificationMessage('Email verification failed. Please try again.')
-          }
-          return
+      // Handle error case first
+      if (error) {
+        setVerificationStatus('error')
+
+        if (errorCode === 'otp_expired') {
+          setVerificationMessage('This verification link has expired. Please request a new one.')
+        } else if (errorCode === 'otp_disabled') {
+          setVerificationMessage('Email verification is not enabled.')
+        } else {
+          setVerificationMessage(errorDescription || 'Email verification failed. Please try again.')
         }
+        return
+      }
 
-        if (code) {
-          const supabase = createBrowserClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-          )
+      // Handle success case with code
+      if (code) {
+        const supabase = createBrowserClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+        )
 
-          try {
-            const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
+        try {
+          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
 
-            if (exchangeError) {
-              setVerificationStatus('error')
-              setVerificationMessage(exchangeError.message)
-              return
-            }
-
-            if (data.session) {
-              setVerificationStatus('success')
-            } else {
-              setVerificationStatus('error')
-              setVerificationMessage('Failed to create session. Please try again.')
-            }
-          } catch (err) {
+          if (exchangeError) {
             setVerificationStatus('error')
-            setVerificationMessage('An unexpected error occurred during verification.')
+            setVerificationMessage(exchangeError.message)
+            return
           }
+
+          if (data.session) {
+            setVerificationStatus('success')
+          } else {
+            setVerificationStatus('error')
+            setVerificationMessage('Failed to create session. Please try again.')
+          }
+        } catch (err) {
+          setVerificationStatus('error')
+          setVerificationMessage('An unexpected error occurred during verification.')
         }
       }
     }
@@ -181,7 +187,7 @@ function HomeContent() {
 
                   <div className="space-y-2">
                     <h1 className="text-3xl font-bold text-red-900 dark:text-red-100">Verification Failed</h1>
-                    <p className="text-red-800 dark:text-red-200">Error during email verification</p>
+                    <p className="text-red-800 dark:text-red-200">{verificationMessage}</p>
                   </div>
 
                   <div className="bg-white dark:bg-black/20 rounded-lg p-4 text-left">
