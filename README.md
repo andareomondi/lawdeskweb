@@ -129,11 +129,10 @@ The app will be available at `http://localhost:3000` (or your configured port).
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: [Add your frontend framework - React, Vue, Angular, etc.]
-- **Backend**: [Add your backend technology - Node.js, Django, etc.]
-- **Database**: [Add your database - PostgreSQL, MongoDB, etc.]
-- **Authentication**: [Add your auth solution - JWT, OAuth, etc.]
-- **Hosting**: [Add your hosting platform - Vercel, AWS, Heroku, etc.]
+- **Frontend**: React, NextJs.
+- **Backend**: Supabase
+- **Database**: PostgreSQL
+- **Hosting**: Vercel
 
 ---
 
