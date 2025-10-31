@@ -31,11 +31,10 @@ function HomeContent() {
         return
       }
 
-      // Show modal and set to loading
+      // Show modal
       setShowVerificationModal(true)
-      setVerificationStatus('loading')
 
-      // Handle error case first
+      // Handle error case
       if (error) {
         setVerificationStatus('error')
 
@@ -50,31 +49,10 @@ function HomeContent() {
       }
 
       // Handle success case with code
+      // Since signup happened in Flutter app, we can't exchange the code here
+      // Just show success message - user needs to login from the app
       if (code) {
-        const supabase = createBrowserClient(
-          process.env.NEXT_PUBLIC_SUPABASE_URL!,
-          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-        )
-
-        try {
-          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
-
-          if (exchangeError) {
-            setVerificationStatus('error')
-            setVerificationMessage(exchangeError.message)
-            return
-          }
-
-          if (data.session) {
-            setVerificationStatus('success')
-          } else {
-            setVerificationStatus('error')
-            setVerificationMessage('Failed to create session. Please try again.')
-          }
-        } catch (err) {
-          setVerificationStatus('error')
-          setVerificationMessage('An unexpected error occurred during verification.')
-        }
+        setVerificationStatus('success')
       }
     }
 
