@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createBrowserClient } from '@supabase/ssr'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 
-export default function EmailConfirmPage() {
+function EmailConfirmContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const supabase = createBrowserClient(
@@ -201,5 +201,28 @@ export default function EmailConfirmPage() {
         )}
       </div>
     </main>
+  )
+}
+
+export default function EmailConfirmPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md">
+          <Card className="p-8 space-y-6 shadow-lg">
+            <div className="text-center space-y-4">
+              <div className="flex justify-center">
+                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                </div>
+              </div>
+              <p className="text-muted-foreground">Loading...</p>
+            </div>
+          </Card>
+        </div>
+      </main>
+    }>
+      <EmailConfirmContent />
+    </Suspense>
   )
 }
