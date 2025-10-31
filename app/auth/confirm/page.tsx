@@ -25,6 +25,9 @@ function EmailConfirmContent() {
 
   useEffect(() => {
     const handleEmailConfirmation = async () => {
+      // Check for the PKCE code in URL
+      const code = searchParams.get('code')
+
       // Check for errors in URL (query params)
       const error = searchParams.get('error')
       const errorCode = searchParams.get('error_code')
@@ -44,26 +47,32 @@ function EmailConfirmContent() {
         return
       }
 
-      // If no errors in URL, check for successful session
-      try {
-        const { data: { session }, error: sessionError } = await supabase.auth.getSession()
+      // If we have a code, exchange it for a session
+      if (code) {
+        try {
+          const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code)
 
-        if (sessionError) {
-          setStatus('error')
-          setMessage(sessionError.message)
-          return
-        }
+          if (exchangeError) {
+            setStatus('error')
+            setMessage(exchangeError.message)
+            return
+          }
 
-        if (session) {
-          setStatus('success')
-          // No auto-redirect since this is just a placeholder
-        } else {
+          if (data.session) {
+            setStatus('success')
+            // No auto-redirect since this is just a placeholder
+          } else {
+            setStatus('error')
+            setMessage('Failed to create session. Please try again.')
+          }
+        } catch (err) {
           setStatus('error')
-          setMessage('No session found. Please try signing in again.')
+          setMessage('An unexpected error occurred during verification.')
         }
-      } catch (err) {
+      } else {
+        // No code and no error - invalid state
         setStatus('error')
-        setMessage('An unexpected error occurred.')
+        setMessage('Invalid verification link. Please request a new one.')
       }
     }
 
