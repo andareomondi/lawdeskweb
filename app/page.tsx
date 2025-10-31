@@ -38,7 +38,7 @@ function HomeContent() {
           } else if (errorCode === 'otp_disabled') {
             setVerificationMessage('Email verification is not enabled.')
           } else {
-            setVerificationMessage(errorDescription || 'Email verification failed. Please try again.')
+            setVerificationMessage('Email verification failed. Please try again.')
           }
           return
         }
@@ -181,7 +181,7 @@ function HomeContent() {
 
                   <div className="space-y-2">
                     <h1 className="text-3xl font-bold text-red-900 dark:text-red-100">Verification Failed</h1>
-                    <p className="text-red-800 dark:text-red-200">{verificationMessage}</p>
+                    <p className="text-red-800 dark:text-red-200">Error during email verification</p>
                   </div>
 
                   <div className="bg-white dark:bg-black/20 rounded-lg p-4 text-left">
