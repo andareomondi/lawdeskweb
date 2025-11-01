@@ -39,6 +39,12 @@ export function Header() {
             Features
           </a>
           <a
+            href="/pricing"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+          >
+            Pricing
+          </a>
+          <a
             href="#upcoming"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
@@ -48,11 +54,10 @@ export function Header() {
             href="#newsletter"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            Join Beta
+            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+              Join Beta
+            </Button>
           </a>
-          <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-            Get Started
-          </Button>
         </nav>
       </div>
     </header >

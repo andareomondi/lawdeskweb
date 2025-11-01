@@ -16,7 +16,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4 pt-4">
               <a
-                href="#"
+                href="https://x.com/andareshadrack"
                 className="w-8 h-8 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-200 text-sm font-semibold"
               >
                 𝕏
@@ -45,6 +45,14 @@ export function Footer() {
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   Security
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/pricing"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  Pricing
                 </a>
               </li>
             </ul>
