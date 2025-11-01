@@ -7,33 +7,30 @@ import { Check } from "lucide-react"
 export default function PricingPage() {
   const plans = [
     {
-      name: "Starter",
-      price: "$29",
+      name: "Beta",
+      price: "Free",
       period: "/month",
-      description: "Perfect for solo practitioners",
+      description: "Perfect for testers",
       features: [
-        "Up to 50 active cases",
+        "5 cases",
         "Document management",
-        "Basic calendar",
-        "Email reminders",
+        "5 Document Upload",
         "Mobile app access",
-        "Community support",
+        "Basic calender",
       ],
       cta: "Start Free Trial",
       highlighted: false,
     },
     {
       name: "Professional",
-      price: "$79",
+      price: "Ksh 999",
       period: "/month",
-      description: "For growing law firms",
+      description: "Perfect for solo practitioners",
       features: [
         "Unlimited cases",
         "Advanced document management",
-        "Smart calendar with AI insights",
+        "Smart calendar",
         "Automated reminders & notifications",
-        "Team collaboration (up to 5 users)",
-        "Priority email support",
         "Custom workflows",
         "Advanced search & filters",
       ],
@@ -55,7 +52,7 @@ export default function PricingPage() {
         "Custom integrations",
         "On-premise deployment option",
       ],
-      cta: "Contact Sales",
+      cta: "Coming soon",
       highlighted: false,
     },
   ]
@@ -63,9 +60,9 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main >
         {/* Hero Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Simple, Transparent Pricing</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -78,11 +75,10 @@ export default function PricingPage() {
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`rounded-2xl p-8 border transition-all duration-300 ${
-                  plan.highlighted
-                    ? "border-primary bg-primary/5 ring-2 ring-primary/20 scale-105"
-                    : "border-border bg-card hover:border-primary/50"
-                }`}
+                className={`rounded-2xl p-8 border transition-all duration-300 ${plan.highlighted
+                  ? "border-primary bg-primary/5 ring-2 ring-primary/20 scale-105"
+                  : "border-border bg-card hover:border-primary/50"
+                  }`}
               >
                 {plan.highlighted && (
                   <div className="mb-4 inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-semibold rounded-full">
@@ -96,11 +92,10 @@ export default function PricingPage() {
                   <span className="text-muted-foreground ml-2">{plan.period}</span>
                 </div>
                 <button
-                  className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${
-                    plan.highlighted
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "bg-muted text-foreground hover:bg-muted/80"
-                  }`}
+                  className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${plan.highlighted
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-muted text-foreground hover:bg-muted/80"
+                    }`}
                 >
                   {plan.cta}
                 </button>
