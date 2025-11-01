@@ -34,12 +34,14 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all"
-              >
-                Join the Beta
-              </Button>
+              <a href="#newsletter">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold px-8 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all"
+                >
+                  Join the Beta
+                </Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"

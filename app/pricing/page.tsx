@@ -122,7 +122,7 @@ export default function PricingPage() {
                 },
                 {
                   q: "What payment methods do you accept?",
-                  a: "We accept all major credit cards, bank transfers, and mobile money payments (M-Pesa, Airtel Money).",
+                  a: "We accept all major mobile money payments (M-Pesa, Airtel Money).",
                 },
                 {
                   q: "Is there a setup fee?",
@@ -130,7 +130,7 @@ export default function PricingPage() {
                 },
                 {
                   q: "Do you offer annual billing discounts?",
-                  a: "Yes, annual billing comes with a 20% discount compared to monthly billing.",
+                  a: "Yes, annual billing comes with a 20% discount compared to monthly billing. Contact shadrackandare@gmail.com for further details",
                 },
               ].map((item, idx) => (
                 <div key={idx} className="border border-border rounded-lg p-6">
