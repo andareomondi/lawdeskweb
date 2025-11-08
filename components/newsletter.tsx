@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
-import { createClient } from "@/lib/supabase/supabase_config"
+import { createClient } from "@/lib/supabase/clientSupabase"
 
 export function Newsletter() {
   const [email, setEmail] = useState("")
@@ -15,14 +15,17 @@ export function Newsletter() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-
     const supabase = createClient()
     try {
-    await supabase.from("beta").insert({ email })
+      const { error } = await supabase.from("beta").insert({ email })
+      if (error) {
+        console.error("Error subscribing to beta:", error)
+      }
     } catch (error) {
-      console.error("Error submitting email")
+      console.error("Unexpected error:", error)
     }
 
+    
     setSubmitted(true)
     setEmail("")
     setLoading(false)
