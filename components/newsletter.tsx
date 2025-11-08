@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
+import { createClient } from "@/lib/supabase/supabase_config"
 
 export function Newsletter() {
   const [email, setEmail] = useState("")
@@ -15,8 +16,12 @@ export function Newsletter() {
     e.preventDefault()
     setLoading(true)
 
-    // TODO: Implement actual email submission here 
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const supabase = createClient()
+    try {
+    await supabase.from("beta").insert({ email })
+    } catch (error) {
+      console.error("Error submitting email")
+    }
 
     setSubmitted(true)
     setEmail("")
