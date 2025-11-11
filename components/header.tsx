@@ -33,7 +33,7 @@ export function Header() {
 
         <nav className="hidden md:flex items-center gap-8">
           <a
-            href="#features"
+            href="/features"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             Features
