@@ -21,7 +21,7 @@ export function UpcomingFeatures() {
   return (
     <section
       id="upcoming"
-      className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden"
+      className="py-8 md:py-16 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />

@@ -1,10 +1,15 @@
 import { Features } from "@/components/features"
+import { Header } from "@/components/header"
+import { UpcomingFeatures } from "@/components/upcoming-features"
+import { Footer } from "@/components/footer"
 
 function FeaturesPage() {
   return (
-    <main className="min-h-screen p-8">
-
+    <main >
+    <Header />
     <Features />
+    <UpcomingFeatures />
+    <Footer />
     </main>
   )
 }

@@ -45,10 +45,10 @@ export function Header() {
             Pricing
           </a>
           <a
-            href="#upcoming"
+            href="/contact"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            Roadmap
+            Contact
           </a>
           <a
             href="#newsletter"
