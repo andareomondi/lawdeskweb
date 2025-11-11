@@ -2,9 +2,14 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { BetaModal } from "@/components/beta-modal"
+import { useState } from "react" 
 
 export function Header() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
+    <>
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 group">
@@ -50,16 +55,18 @@ export function Header() {
           >
             Contact
           </a>
-          <a
-            href="#newsletter"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-          >
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+            <Button 
+              size="sm" 
+              onClick={() => setModalOpen(true)}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            >
               Join Beta
             </Button>
-          </a>
         </nav>
       </div>
     </header >
+
+    <BetaModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   )
 }

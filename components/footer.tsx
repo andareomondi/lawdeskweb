@@ -22,16 +22,10 @@ export function Footer() {
                 𝕏
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/shadrack-andare-2b271b34b/"
                 className="w-8 h-8 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-200 text-sm font-semibold"
               >
                 in
-              </a>
-              <a
-                href="#"
-                className="w-8 h-8 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-200 text-sm font-semibold"
-              >
-                ⚙
               </a>
             </div>
           </div>
