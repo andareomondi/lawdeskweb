@@ -1,10 +1,14 @@
 "use client"
 
 import { Header } from "@/components/header"
+import { BetaModal } from "@/components/beta-modal"
 import { Footer } from "@/components/footer"
 import { Check } from "lucide-react"
+import { useState } from "react"
 
 export default function PricingPage() {
+  const [modalOpen, setModalOpen ] = useState(false);
+
   const plans = [
     {
       name: "Beta",
@@ -92,6 +96,7 @@ export default function PricingPage() {
                   <span className="text-muted-foreground ml-2">{plan.period}</span>
                 </div>
                 <button
+                onClick={() => setModalOpen(true)}
                   className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${plan.highlighted
                     ? "bg-primary text-primary-foreground hover:bg-primary/90"
                     : "bg-muted text-foreground hover:bg-muted/80"
@@ -141,6 +146,7 @@ export default function PricingPage() {
             </div>
           </div>
         </section>
+      <BetaModal open={modalOpen} onOpenChange={setModalOpen} />
       </main>
       <Footer />
     </div>
