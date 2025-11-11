@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import { createClient } from "@/lib/supabase/clientSupabase"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Mail, Phone, MapPin } from "lucide-react"
@@ -15,11 +15,32 @@ export default function ContactPage() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    setLoading(true)
+
+    const supabase = createClient()
+    try {
+      const {error} = await supabase.from("inquiries").insert({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,})
+      if (error) {
+        console.error("Error submitting inquiry:", error)
+      }
+    } catch (error) {
+      console.error("Unexpected error:", error)
+    }
+
+    setSubmitted(true)
     setFormData({ name: "", email: "", subject: "", message: "" })
-    //TODO: Implement a table to save contact messages
+    setLoading(false)
+
+    setTimeout(() => setSubmitted(false), 3000)
   }
 
   return (
@@ -73,6 +94,15 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
+          {submitted ? (
+              /* Enhanced success message with better styling */
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 border-2 border-green-200 dark:border-green-800 rounded-lg p-6 space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
+                <p className="text-lg font-bold text-green-800 dark:text-green-200">✓Thank you for your feedback</p>
+                <p className="text-sm text-green-700 dark:text-green-300">
+                  We appreciate you reaching out to us. We'll get back to you shortly.
+                </p>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <input
@@ -110,11 +140,13 @@ export default function ContactPage() {
               />
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
               >
-                Send Message
+              {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
+            )}
           </div>
         </section>
       </main>
