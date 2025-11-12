@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { useState, useRef, useEffect } from "react"
+import { X } from "lucide-react"
 
 export function CTAButtons() {
+  const [demoModalOpen, setDemoModalOpen] = useState(false)
+  const videoRef = useRef(null)
+
   const handleScrollToNewsletter = (e) => {
     e.preventDefault()
     const newsletterSection = document.querySelector('#newsletter')
@@ -19,6 +25,27 @@ export function CTAButtons() {
     }
   }
 
+  const handleOpenDemo = () => {
+    setDemoModalOpen(true)
+  }
+
+  const handleCloseDemo = () => {
+    setDemoModalOpen(false)
+    // Pause video when modal closes
+    if (videoRef.current) {
+      videoRef.current.pause()
+    }
+  }
+
+  // Auto-play video when modal opens
+  useEffect(() => {
+    if (demoModalOpen && videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Auto-play prevented:", error)
+      })
+    }
+  }, [demoModalOpen])
+
   return (
     <>
       <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -33,11 +60,43 @@ export function CTAButtons() {
         <Button
           size="lg"
           variant="outline"
+          onClick={handleOpenDemo}
           className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-lg border-2 bg-transparent hover:bg-accent/50 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:-translate-y-0.5 hover:border-primary/50"
         >
           See Demo
         </Button>
       </div>
+
+      {/* Video Demo Modal */}
+      <Dialog open={demoModalOpen} onOpenChange={handleCloseDemo}>
+        <DialogContent className="max-w-5xl w-[95vw] p-0 overflow-hidden border-2 border-primary/20 bg-black">
+          {/* Close button */}
+          <button
+            onClick={handleCloseDemo}
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-all duration-200 hover:scale-110"
+            aria-label="Close demo"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Video container */}
+          <div className="relative w-full aspect-video bg-black">
+            <video
+              ref={videoRef}
+              className="w-full h-full"
+              controls
+              muted
+              playsInline
+              preload="metadata"
+            >
+              {/* Replace this src with your video URL */}
+              <source src="/demo-video.mp4" type="video/mp4" />
+              <source src="/demo-video.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <style jsx global>{`
         @keyframes highlight-pulse {
@@ -56,6 +115,11 @@ export function CTAButtons() {
         /* Smooth scroll for the entire page */
         html {
           scroll-behavior: smooth;
+        }
+
+        /* Remove default dialog padding */
+        [data-state="open"] > div {
+          padding: 0 !important;
         }
       `}</style>
     </>
