@@ -156,17 +156,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Contact
-
-**LawDesk Team**
-- Website: [www.lawdesk.co.ke](https://www.lawdesk.co.ke)
-- Email: support@lawdesk.co.ke
-- Twitter: [@LawDeskKE](https://twitter.com/LawDeskKE)
-
-**Project Link**: [https://github.com/yourusername/lawdeskweb](https://github.com/yourusername/lawdeskweb)
-
----
-
 ## 🙏 Acknowledgments
 
 - Built with ❤️ for legal professionals in Kenya
