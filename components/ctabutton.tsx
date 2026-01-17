@@ -57,6 +57,7 @@ export function CTAButtons() {
             Join the Beta
           </Button>
         </a>
+        <a href="https://github.com/andareomondi/lawdesk/releases/download/v8.3beta/LawDesk.apk">
         <Button
           size="lg"
           variant="outline"
@@ -65,6 +66,7 @@ export function CTAButtons() {
         >
           See Demo
         </Button>
+        </a>
       </div>
 
       {/* Video Demo Modal */}

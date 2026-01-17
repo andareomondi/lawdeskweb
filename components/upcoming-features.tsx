@@ -1,21 +1,29 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const upcomingFeatures = [
   {
     icon: "🤖",
     title: "AI Integration",
-    description: "AI assistance to help plan, execute and conduct cases based on case documents",
-    badge: "Q1 2025",
+    description:
+      "AI assistance to help plan, execute and conduct cases based on case documents",
+    badge: "Upcoming",
   },
   {
     icon: "💬",
     title: "In-App Text Editor",
-    description: "Create new text files and short notes for individual cases while brainstorming",
-    badge: "Q1 2025",
+    description:
+      "Create new text files for individual cases while brainstorming",
+    badge: "Upcoming",
   },
-]
+];
 
 export function UpcomingFeatures() {
   return (
@@ -31,13 +39,16 @@ export function UpcomingFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full w-fit mx-auto">
-            <span className="text-sm font-semibold text-accent">🚀 Roadmap</span>
+            <span className="text-sm font-semibold text-accent">
+              🚀 Roadmap
+            </span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-balance">
             The Future is Bright
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance">
-            We're constantly innovating to bring you cutting-edge tools for your legal practice
+            We're constantly innovating to bring you cutting-edge tools for your
+            legal practice
           </p>
         </div>
 
@@ -56,15 +67,19 @@ export function UpcomingFeatures() {
                     {feature.badge}
                   </span>
                 </div>
-                <CardTitle className="text-2xl font-bold">{feature.title}</CardTitle>
+                <CardTitle className="text-2xl font-bold">
+                  {feature.title}
+                </CardTitle>
               </CardHeader>
               <CardContent className="relative z-10">
-                <CardDescription className="text-base leading-relaxed">{feature.description}</CardDescription>
+                <CardDescription className="text-base leading-relaxed">
+                  {feature.description}
+                </CardDescription>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
