@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export function Footer() {
   return (
@@ -31,7 +31,9 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">Product</h4>
+            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">
+              Product
+            </h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
@@ -53,10 +55,15 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">Company</h4>
+            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">
+              Company
+            </h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                <a
+                  href="/about"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
                   About Us
                 </a>
               </li>
@@ -72,7 +79,9 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">Legal</h4>
+            <h4 className="font-semibold text-foreground text-sm uppercase tracking-wide">
+              Legal
+            </h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
@@ -83,7 +92,10 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                <a
+                  href="/terms"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
                   Terms of Service
                 </a>
               </li>
@@ -93,15 +105,18 @@ export function Footer() {
 
         <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2025 LawDesk. All rights reserved. Built for African lawyers.
+            © 2026 LawDesk. All rights reserved. Built for African lawyers.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+            <a
+              href="/contact"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
               Support
             </a>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,50 +1,50 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog"
-import { createClient } from "@/lib/supabase/clientSupabase"
-import { CheckCircle2, Sparkles } from "lucide-react"
+} from "@/components/ui/dialog";
+import { createClient } from "@/lib/supabase/clientSupabase";
+import { CheckCircle2, Sparkles } from "lucide-react";
 
 export function BetaModal({ open, onOpenChange }) {
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
-    setLoading(true)
-    const supabase = createClient()
+    setLoading(true);
+    const supabase = createClient();
 
     try {
-      const { error } = await supabase.from("beta").insert({ email })
+      const { error } = await supabase.from("beta").insert({ email });
       if (error) {
-        console.error("Error subscribing to beta:", error)
+        console.error("Error subscribing to beta:", error);
       }
     } catch (error) {
-      console.error("Unexpected error:", error)
+      console.error("Unexpected error:", error);
     }
 
-    setSubmitted(true)
-    setEmail("")
-    setLoading(false)
+    setSubmitted(true);
+    setEmail("");
+    setLoading(false);
 
     // Reset after 3 seconds and close modal
     setTimeout(() => {
-      setSubmitted(false)
-      onOpenChange(false)
-    }, 3000)
-  }
+      setSubmitted(false);
+      onOpenChange(false);
+    }, 3000);
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] max-w-[calc(100vw-2rem)] mx-4 border-2 border-primary/30 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <DialogContent className="sm:max-w-[500px] max-w-[calc(100vw-2rem)]  border-2 border-primary/30 bg-gradient-to-br from-primary/5 via-background to-accent/5  rounded-xl ">
         <DialogHeader>
           <DialogTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-center px-2">
             Join the LawDesk Beta
@@ -94,7 +94,7 @@ export function BetaModal({ open, onOpenChange }) {
                   onChange={(e) => setEmail(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && email) {
-                      handleSubmit()
+                      handleSubmit();
                     }
                   }}
                   className="bg-background border-2 border-border focus:border-primary h-11 sm:h-12 text-sm sm:text-base transition-all duration-200 focus:ring-2 focus:ring-primary/20"
@@ -133,5 +133,5 @@ export function BetaModal({ open, onOpenChange }) {
         }
       `}</style>
     </Dialog>
-  )
+  );
 }

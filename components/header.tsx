@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { BetaModal } from "@/components/beta-modal"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { BetaModal } from "@/components/beta-modal";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export function Header() {
-  const [modalOpen, setModalOpen] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -102,8 +102,8 @@ export function Header() {
             <Button
               size="sm"
               onClick={() => {
-                setModalOpen(true)
-                setMobileMenuOpen(false)
+                setModalOpen(true);
+                setMobileMenuOpen(false);
               }}
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-2"
             >
@@ -115,5 +115,5 @@ export function Header() {
 
       <BetaModal open={modalOpen} onOpenChange={setModalOpen} />
     </>
-  )
+  );
 }
