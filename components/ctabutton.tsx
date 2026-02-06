@@ -1,50 +1,50 @@
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { useState, useRef, useEffect } from "react"
-import { X } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState, useRef, useEffect } from "react";
+import { X } from "lucide-react";
 
 export function CTAButtons() {
-  const [demoModalOpen, setDemoModalOpen] = useState(false)
-  const videoRef = useRef(null)
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
+  const videoRef = useRef(null);
 
   const handleScrollToNewsletter = (e) => {
-    e.preventDefault()
-    const newsletterSection = document.querySelector('#newsletter')
-    
+    e.preventDefault();
+    const newsletterSection = document.querySelector("#newsletter");
+
     if (newsletterSection) {
       newsletterSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      })
-      
+        behavior: "smooth",
+        block: "center",
+      });
+
       // Optional: Add a subtle highlight animation to the newsletter section
-      newsletterSection.classList.add('highlight-pulse')
+      newsletterSection.classList.add("highlight-pulse");
       setTimeout(() => {
-        newsletterSection.classList.remove('highlight-pulse')
-      }, 2000)
+        newsletterSection.classList.remove("highlight-pulse");
+      }, 2000);
     }
-  }
+  };
 
   const handleOpenDemo = () => {
-    setDemoModalOpen(true)
-  }
+    setDemoModalOpen(true);
+  };
 
   const handleCloseDemo = () => {
-    setDemoModalOpen(false)
+    setDemoModalOpen(false);
     // Pause video when modal closes
     if (videoRef.current) {
-      videoRef.current.pause()
+      videoRef.current.pause();
     }
-  }
+  };
 
   // Auto-play video when modal opens
   useEffect(() => {
     if (demoModalOpen && videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log("Auto-play prevented:", error)
-      })
+      videoRef.current.play().catch((error) => {
+        console.log("Auto-play prevented:", error);
+      });
     }
-  }, [demoModalOpen])
+  }, [demoModalOpen]);
 
   return (
     <>
@@ -57,15 +57,14 @@ export function CTAButtons() {
             Join the Beta
           </Button>
         </a>
-        <a href="https://github.com/andareomondi/lawdesk/releases/download/v8.3beta/LawDesk.apk">
-        <Button
-          size="lg"
-          variant="outline"
-          onClick={handleOpenDemo}
-          className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-lg border-2 bg-transparent hover:bg-accent/50 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:-translate-y-0.5 hover:border-primary/50"
-        >
-          See Demo
-        </Button>
+        <a href="https://github.com/andareomondi/lawdesk/releases/download/v9.0.0/LawDesk-beta.apk">
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full sm:w-auto text-base font-semibold px-8 py-6 rounded-lg border-2 bg-transparent hover:bg-accent/50 transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] hover:-translate-y-0.5 hover:border-primary/50"
+          >
+            See Demo
+          </Button>
         </a>
       </div>
 
@@ -102,7 +101,8 @@ export function CTAButtons() {
 
       <style jsx global>{`
         @keyframes highlight-pulse {
-          0%, 100% {
+          0%,
+          100% {
             box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
           }
           50% {
@@ -125,5 +125,5 @@ export function CTAButtons() {
         }
       `}</style>
     </>
-  )
+  );
 }
