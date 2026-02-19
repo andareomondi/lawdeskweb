@@ -57,7 +57,7 @@ export function CTAButtons() {
             Join the Beta
           </Button>
         </a>
-        <a href="https://github.com/andareomondi/lawdesk/releases/download/v9.0.0/LawDesk.apk">
+        <a href="https://github.com/andareomondi/lawdesk/releases/download/v9.0.0-release/LawDesk.apk">
           <Button
             size="lg"
             variant="outline"
